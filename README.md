@@ -54,5 +54,14 @@ Add following configurations in $MAVEN_HOME/conf/settings.xml
 
 ```
 
+ <mirrors>
+    <mirror>
+      <id>central</id>
+      <name>central</name>
+      <url>http://172.31.34.129:8081/repository/javahome-group/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
 ```
 
