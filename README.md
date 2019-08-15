@@ -1,9 +1,9 @@
 ### Maven Nexus configurations
 
-#### Upload artifacts to nexus through maven
+## Upload artifacts to nexus through maven
 add following snippet pom.xml
 
-#### Step -1
+### Step -1
 ```
 <!-- Keep this code outside dependencies tag-->
 <distributionManagement>
@@ -19,7 +19,7 @@ add following snippet pom.xml
   	</distributionManagement>
 
 ```
-#### Step -2
+### Step -2
 Add following snippent in $MAVEN_HOME/conf/settings.xml
 
 ```
@@ -31,4 +31,11 @@ Add following snippent in $MAVEN_HOME/conf/settings.xml
       <password>admin</password>
     </server>
   </servers>
+```
+
+### Step-3
+Run maven command to deploy artifacts to nexus
+
+```
+ mvn clean deploy
 ```
