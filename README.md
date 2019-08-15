@@ -39,3 +39,20 @@ Run maven command to deploy artifacts to nexus
 ```
  mvn clean deploy
 ```
+
+
+## Download artifacts from nexus
+
+### Step-1
+Create poxy repository in nexus
+
+create group repository with (release, snapshot, proxy)
+### Step-2
+
+Add following configurations in $MAVEN_HOME/conf/settings.xml
+
+
+```
+
+```
+
