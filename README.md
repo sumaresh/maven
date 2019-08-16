@@ -1,9 +1,9 @@
-### Maven Nexus configurations
+# Maven Nexus configurations
 
 ## Upload artifacts to nexus through maven
-add following snippet pom.xml
 
 ### Step -1
+Add following snippet pom.xml
 ```
 <!-- Keep this code outside dependencies tag-->
 <distributionManagement>
@@ -63,5 +63,47 @@ Add following configurations in $MAVEN_HOME/conf/settings.xml
     </mirror>
   </mirrors>
 
+```
+
+### Full settings.xml file should look like this.
+
+```
+  <settings>
+  <mirrors>
+    <mirror>
+      <!--This sends everything else to /public -->
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://localhost:8081/repository/maven-proxy-test/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <!--Enable snapshots for the built in central repo to direct -->
+      <!--all requests to nexus via the mirror -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+     <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+</settings>
 ```
 
