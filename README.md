@@ -107,3 +107,15 @@ Add following configurations in $MAVEN_HOME/conf/settings.xml
 </settings>
 ```
 
+## Create project one
+
+```
+mvn archetype:generate -DgroupId=in.java -DartifactId=one -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+## Create project two
+
+```
+mvn archetype:generate -DgroupId=in.java -DartifactId=two -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
